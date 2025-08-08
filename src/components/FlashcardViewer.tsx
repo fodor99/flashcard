@@ -269,8 +269,8 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
           <motion.span
             key={correctAnswersCount} // Key changes to trigger animation
             initial={{ scale: 1 }}
-            animate={{ scale: [1, 1.9, 1] }} // Zoom in and out
-            transition={{ duration: 0.4 }}
+            animate={{ scale: [1, 1.4, 1] }} // Increased scale for bigger flash
+            transition={{ duration: 0.6 }} // Increased duration for longer flash
             className="font-bold text-green-600"
           >
             {correctAnswersCount}
