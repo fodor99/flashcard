@@ -268,10 +268,13 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
           Correct Answers:{" "}
           <motion.span
             key={correctAnswersCount} // Key changes to trigger animation
-            initial={{ scale: 1 }}
-            animate={{ scale: [1, 1.4, 1] }} // Increased scale for bigger flash
-            transition={{ duration: 0.6 }} // Increased duration for longer flash
-            className="font-bold text-green-600"
+            initial={{ scale: 1, color: "#000000" }} // Start black
+            animate={{
+              scale: [1, 1.6, 1], // Increased scale for bigger flash
+              color: ["#000000", "#16a34a", "#000000"] // Flash green then back to black
+            }}
+            transition={{ duration: 0.8 }} // Increased duration for longer flash
+            className="font-bold" // Color handled by motion
           >
             {correctAnswersCount}
           </motion.span>
