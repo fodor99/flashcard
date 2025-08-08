@@ -20,17 +20,13 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
 
   // Function to generate quiz options
   const generateOptions = useCallback(() => {
-    if (flashcards.length === 0) {
-      setOptions([]);
-      setCorrectOptionText("");
-      setSelectedOptionIndex(null);
-      setIsFlipped(false);
-      setFeedbackColor("bg-blue-100");
-      return;
-    }
+    // This check is now handled by the main component's early return
+    // if (flashcards.length === 0) { ... return; }
 
-    const currentCard = flashcards[currentIndex];
-    const correctAns = currentCard.back;
+    const currentCardForOptions = flashcards[currentIndex]; // Access current card for options generation
+    if (!currentCardForOptions) return; // Safety check in case of async issues or rapid state changes
+
+    const correctAns = currentCardForOptions.back;
     setCorrectOptionText(correctAns);
 
     const allOtherBacks = flashcards
@@ -140,6 +136,9 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
       </div>
     );
   }
+
+  // Define currentCard here, after the check for empty flashcards
+  const currentCard = flashcards[currentIndex];
 
   return (
     <div className={cn("w-full max-w-2xl p-6 flex flex-col items-center rounded-lg shadow-md transition-colors duration-300", feedbackColor)}>
