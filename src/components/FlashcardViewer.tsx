@@ -20,7 +20,7 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
   const [correctOptionText, setCorrectOptionText] = useState<string>("");
   const [selectedOptionIndex, setSelectedOptionIndex] = useState<number | null>(null);
   const [feedbackColor, setFeedbackColor] = useState<string>("bg-blue-100");
-  const [autoNextEnabled, setAutoNextEnabled] = useState<boolean>(true); // Changed to true
+  const [autoNextEnabled, setAutoNextEnabled] = useState<boolean>(true);
   const autoNextTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // New state for statistics
@@ -270,11 +270,11 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
             key={correctAnswersCount} // Key changes to trigger animation
             initial={{ scale: 1, color: "#000000" }} // Start black
             animate={{
-              scale: [1, 1.6, 1], // Increased scale for bigger flash
-              color: ["#000000", "#16a34a", "#000000"] // Flash green then back to black
+              scale: [1, 2.5, 1], // Increased scale for a more dramatic flash
+              color: ["#000000", "#22C55E", "#000000"] // Flash vibrant green then back to black
             }}
-            transition={{ duration: 0.8 }} // Increased duration for longer flash
-            className="font-bold" // Color handled by motion
+            transition={{ duration: 0.7 }} // Slightly longer duration for visibility
+            className="font-bold" // This class provides bolding, color is animated
           >
             {correctAnswersCount}
           </motion.span>
