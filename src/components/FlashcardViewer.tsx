@@ -1,9 +1,11 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { ArrowLeft, ArrowRight, RotateCcw } from "lucide-react";
 import { Flashcard } from "@/types/flashcard";
 import { cn, shuffleArray } from "@/lib/utils";
+import { Switch } from "@/components/ui/switch"; // Import Switch component
+import { Label } from "@/components/ui/label"; // Import Label component
 
 interface FlashcardViewerProps {
   flashcards: Flashcard[];
@@ -17,6 +19,8 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
   const [correctOptionText, setCorrectOptionText] = useState<string>("");
   const [selectedOptionIndex, setSelectedOptionIndex] = useState<number | null>(null);
   const [feedbackColor, setFeedbackColor] = useState<string>("bg-blue-100"); // Default light blue
+  const [autoNextEnabled, setAutoNextEnabled] = useState<boolean>(false); // New state for auto-next
+  const autoNextTimeoutRef = useRef<NodeJS.Timeout | null>(null); // Ref to store timeout ID
 
   // Function to generate quiz options
   const generateOptions = useCallback(() => {
@@ -67,6 +71,10 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
   }, []);
 
   const handleNext = useCallback(() => {
+    if (autoNextTimeoutRef.current) {
+      clearTimeout(autoNextTimeoutRef.current);
+      autoNextTimeoutRef.current = null;
+    }
     setIsFlipped(false);
     setSelectedOptionIndex(null);
     setFeedbackColor("bg-blue-100");
@@ -74,6 +82,10 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
   }, [flashcards.length]);
 
   const handlePrev = useCallback(() => {
+    if (autoNextTimeoutRef.current) {
+      clearTimeout(autoNextTimeoutRef.current);
+      autoNextTimeoutRef.current = null;
+    }
     setIsFlipped(false);
     setSelectedOptionIndex(null);
     setFeedbackColor("bg-blue-100");
@@ -88,10 +100,26 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
 
     if (selectedText === correctOptionText) {
       setFeedbackColor("bg-green-100");
+      if (autoNextEnabled) {
+        autoNextTimeoutRef.current = setTimeout(() => {
+          handleNext();
+        }, 5000); // 5 seconds
+      }
     } else {
       setFeedbackColor("bg-red-100");
+      // No auto-next on incorrect selection
     }
-  }, [selectedOptionIndex, correctOptionText]);
+  }, [selectedOptionIndex, correctOptionText, autoNextEnabled, handleNext]);
+
+  // Clear timeout if component unmounts or current card changes
+  useEffect(() => {
+    return () => {
+      if (autoNextTimeoutRef.current) {
+        clearTimeout(autoNextTimeoutRef.current);
+      }
+    };
+  }, [currentIndex]);
+
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -142,6 +170,15 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
 
   return (
     <div className={cn("w-full max-w-2xl p-6 flex flex-col items-center rounded-lg shadow-md transition-colors duration-300", feedbackColor)}>
+      <div className="flex items-center space-x-2 mb-4 self-end">
+        <Switch
+          id="auto-next-mode"
+          checked={autoNextEnabled}
+          onCheckedChange={setAutoNextEnabled}
+        />
+        <Label htmlFor="auto-next-mode">Auto-Next on Correct</Label>
+      </div>
+
       <Card className="w-full h-80 flex flex-col justify-between items-center p-6 mb-6 relative perspective-1000 bg-white">
         <div
           className={cn(
