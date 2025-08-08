@@ -4,8 +4,9 @@ import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { ArrowLeft, ArrowRight, RotateCcw } from "lucide-react";
 import { Flashcard } from "@/types/flashcard";
 import { cn, shuffleArray } from "@/lib/utils";
-import { Switch } from "@/components/ui/switch"; // Import Switch component
-import { Label } from "@/components/ui/label"; // Import Label component
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
+import { motion } from "framer-motion"; // Import motion from framer-motion
 
 interface FlashcardViewerProps {
   flashcards: Flashcard[];
@@ -18,17 +19,18 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
   const [options, setOptions] = useState<string[]>([]);
   const [correctOptionText, setCorrectOptionText] = useState<string>("");
   const [selectedOptionIndex, setSelectedOptionIndex] = useState<number | null>(null);
-  const [feedbackColor, setFeedbackColor] = useState<string>("bg-blue-100"); // Default light blue
-  const [autoNextEnabled, setAutoNextEnabled] = useState<boolean>(false); // New state for auto-next
-  const autoNextTimeoutRef = useRef<NodeJS.Timeout | null>(null); // Ref to store timeout ID
+  const [feedbackColor, setFeedbackColor] = useState<string>("bg-blue-100");
+  const [autoNextEnabled, setAutoNextEnabled] = useState<boolean>(false);
+  const autoNextTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // New state for statistics
+  const [cardsPresentedCount, setCardsPresentedCount] = useState(1); // Starts at 1 for the first card
+  const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
 
   // Function to generate quiz options
   const generateOptions = useCallback(() => {
-    // This check is now handled by the main component's early return
-    // if (flashcards.length === 0) { ... return; }
-
-    const currentCardForOptions = flashcards[currentIndex]; // Access current card for options generation
-    if (!currentCardForOptions) return; // Safety check in case of async issues or rapid state changes
+    const currentCardForOptions = flashcards[currentIndex];
+    if (!currentCardForOptions) return;
 
     const correctAns = currentCardForOptions.back;
     setCorrectOptionText(correctAns);
@@ -37,20 +39,17 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
       .filter((_, index) => index !== currentIndex)
       .map(card => card.back);
 
-    // Get unique incorrect options, excluding the correct answer
     const uniqueIncorrectOptions = Array.from(new Set(allOtherBacks)).filter(
       (option) => option !== correctAns
     );
 
     const selectedIncorrectOptions: string[] = [];
-    // Randomly pick two distinct incorrect options
     while (selectedIncorrectOptions.length < 2 && uniqueIncorrectOptions.length > 0) {
       const randomIndex = Math.floor(Math.random() * uniqueIncorrectOptions.length);
       selectedIncorrectOptions.push(uniqueIncorrectOptions[randomIndex]);
-      uniqueIncorrectOptions.splice(randomIndex, 1); // Remove to avoid re-picking
+      uniqueIncorrectOptions.splice(randomIndex, 1);
     }
 
-    // Fallback: if not enough unique incorrect options, add generic ones
     while (selectedIncorrectOptions.length < 2) {
       selectedIncorrectOptions.push(`Another Option ${selectedIncorrectOptions.length + 1}`);
     }
@@ -59,7 +58,7 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
     setOptions(allOptions);
     setSelectedOptionIndex(null);
     setIsFlipped(false);
-    setFeedbackColor("bg-blue-100"); // Reset background to light blue
+    setFeedbackColor("bg-blue-100");
   }, [flashcards, currentIndex]);
 
   useEffect(() => {
@@ -78,7 +77,11 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
     setIsFlipped(false);
     setSelectedOptionIndex(null);
     setFeedbackColor("bg-blue-100");
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % flashcards.length);
+    setCurrentIndex((prevIndex) => {
+      const newIndex = (prevIndex + 1) % flashcards.length;
+      setCardsPresentedCount(prevCount => prevCount + 1); // Increment cards presented
+      return newIndex;
+    });
   }, [flashcards.length]);
 
   const handlePrev = useCallback(() => {
@@ -89,25 +92,29 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
     setIsFlipped(false);
     setSelectedOptionIndex(null);
     setFeedbackColor("bg-blue-100");
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + flashcards.length) % flashcards.length);
+    setCurrentIndex((prevIndex) => {
+      const newIndex = (prevIndex - 1 + flashcards.length) % flashcards.length;
+      setCardsPresentedCount(prevCount => prevCount + 1); // Increment cards presented
+      return newIndex;
+    });
   }, [flashcards.length]);
 
   const handleOptionSelect = useCallback((selectedText: string, index: number) => {
-    if (selectedOptionIndex !== null) return; // Prevent multiple selections
+    if (selectedOptionIndex !== null) return;
 
     setSelectedOptionIndex(index);
-    setIsFlipped(true); // Automatically flip the card
+    setIsFlipped(true);
 
     if (selectedText === correctOptionText) {
       setFeedbackColor("bg-green-100");
+      setCorrectAnswersCount(prevCount => prevCount + 1); // Increment correct answers
       if (autoNextEnabled) {
         autoNextTimeoutRef.current = setTimeout(() => {
           handleNext();
-        }, 2000); // 2 seconds
+        }, 2000);
       }
     } else {
       setFeedbackColor("bg-red-100");
-      // No auto-next on incorrect selection
     }
   }, [selectedOptionIndex, correctOptionText, autoNextEnabled, handleNext]);
 
@@ -120,7 +127,7 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
     };
   }, [currentIndex]);
 
-
+  // Handle keyboard navigation
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       switch (event.key) {
@@ -135,7 +142,7 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
           handleFlip();
           break;
         case "Enter":
-          onReset(); // Start new session
+          onReset();
           break;
         case "1":
         case "2":
@@ -156,6 +163,27 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
     };
   }, [handlePrev, handleNext, handleFlip, onReset, options, handleOptionSelect]);
 
+  // Handle stats reset
+  const handleStatsReset = useCallback(() => {
+    if (selectedOptionIndex === null) { // If no option selected (blue background)
+      setCardsPresentedCount(1); // Reset to 1 for the current card
+      setCorrectAnswersCount(0);
+    } else { // If an option was selected (red or green background)
+      setCardsPresentedCount(0); // Reset both to 0
+      setCorrectAnswersCount(0);
+    }
+    // Clear any pending auto-next timeout
+    if (autoNextTimeoutRef.current) {
+      clearTimeout(autoNextTimeoutRef.current);
+      autoNextTimeoutRef.current = null;
+    }
+    // Reset current card's selection state
+    setIsFlipped(false);
+    setSelectedOptionIndex(null);
+    setFeedbackColor("bg-blue-100");
+  }, [selectedOptionIndex]);
+
+
   if (flashcards.length === 0) {
     return (
       <div className="text-center p-6">
@@ -165,7 +193,6 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
     );
   }
 
-  // Define currentCard here, after the check for empty flashcards
   const currentCard = flashcards[currentIndex];
 
   return (
@@ -234,13 +261,31 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
         ))}
       </div>
 
-      <div className="text-lg text-gray-700 mb-6">
-        Card {currentIndex + 1} of {flashcards.length}
+      <div className="text-lg text-gray-700 mb-6 flex justify-center items-center space-x-2">
+        <span>Cards Presented: {cardsPresentedCount}</span>
+        <span>|</span>
+        <span>
+          Correct Answers:{" "}
+          <motion.span
+            key={correctAnswersCount} // Key changes to trigger animation
+            initial={{ scale: 1 }}
+            animate={{ scale: [1, 1.2, 1] }} // Zoom in and out
+            transition={{ duration: 0.3 }}
+            className="font-bold text-green-600"
+          >
+            {correctAnswersCount}
+          </motion.span>
+        </span>
       </div>
 
-      <Button onClick={onReset} variant="secondary">
-        Start New Session
-      </Button>
+      <div className="flex space-x-4">
+        <Button onClick={handleStatsReset} variant="outline">
+          Reset Stats
+        </Button>
+        <Button onClick={onReset} variant="secondary">
+          Start New Session
+        </Button>
+      </div>
     </div>
   );
 };
