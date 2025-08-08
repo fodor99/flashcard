@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { ArrowLeft, ArrowRight, RotateCcw } from "lucide-react";
 import { Flashcard } from "@/types/flashcard";
-import { cn } from "@/lib/utils";
+import { cn, shuffleArray } from "@/lib/utils";
 
 interface FlashcardViewerProps {
   flashcards: Flashcard[];
@@ -13,27 +13,89 @@ interface FlashcardViewerProps {
 const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
+  const [options, setOptions] = useState<string[]>([]);
+  const [correctOptionText, setCorrectOptionText] = useState<string>("");
+  const [selectedOptionIndex, setSelectedOptionIndex] = useState<number | null>(null);
+  const [feedbackColor, setFeedbackColor] = useState<string>("bg-blue-100"); // Default light blue
+
+  // Function to generate quiz options
+  const generateOptions = useCallback(() => {
+    if (flashcards.length === 0) {
+      setOptions([]);
+      setCorrectOptionText("");
+      setSelectedOptionIndex(null);
+      setIsFlipped(false);
+      setFeedbackColor("bg-blue-100");
+      return;
+    }
+
+    const currentCard = flashcards[currentIndex];
+    const correctAns = currentCard.back;
+    setCorrectOptionText(correctAns);
+
+    const allOtherBacks = flashcards
+      .filter((_, index) => index !== currentIndex)
+      .map(card => card.back);
+
+    // Get unique incorrect options, excluding the correct answer
+    const uniqueIncorrectOptions = Array.from(new Set(allOtherBacks)).filter(
+      (option) => option !== correctAns
+    );
+
+    const selectedIncorrectOptions: string[] = [];
+    // Randomly pick two distinct incorrect options
+    while (selectedIncorrectOptions.length < 2 && uniqueIncorrectOptions.length > 0) {
+      const randomIndex = Math.floor(Math.random() * uniqueIncorrectOptions.length);
+      selectedIncorrectOptions.push(uniqueIncorrectOptions[randomIndex]);
+      uniqueIncorrectOptions.splice(randomIndex, 1); // Remove to avoid re-picking
+    }
+
+    // Fallback: if not enough unique incorrect options, add generic ones
+    while (selectedIncorrectOptions.length < 2) {
+      selectedIncorrectOptions.push(`Another Option ${selectedIncorrectOptions.length + 1}`);
+    }
+
+    const allOptions = shuffleArray([correctAns, ...selectedIncorrectOptions]);
+    setOptions(allOptions);
+    setSelectedOptionIndex(null);
+    setIsFlipped(false);
+    setFeedbackColor("bg-blue-100"); // Reset background to light blue
+  }, [flashcards, currentIndex]);
 
   useEffect(() => {
-    setCurrentIndex(0);
+    generateOptions();
+  }, [currentIndex, flashcards, generateOptions]);
+
+  const handleFlip = useCallback(() => {
+    setIsFlipped((prev) => !prev);
+  }, []);
+
+  const handleNext = useCallback(() => {
     setIsFlipped(false);
-  }, [flashcards]);
-
-  const currentCard = flashcards[currentIndex];
-
-  const handleFlip = () => {
-    setIsFlipped(!isFlipped);
-  };
-
-  const handleNext = () => {
-    setIsFlipped(false);
+    setSelectedOptionIndex(null);
+    setFeedbackColor("bg-blue-100");
     setCurrentIndex((prevIndex) => (prevIndex + 1) % flashcards.length);
-  };
+  }, [flashcards.length]);
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
     setIsFlipped(false);
+    setSelectedOptionIndex(null);
+    setFeedbackColor("bg-blue-100");
     setCurrentIndex((prevIndex) => (prevIndex - 1 + flashcards.length) % flashcards.length);
-  };
+  }, [flashcards.length]);
+
+  const handleOptionSelect = useCallback((selectedText: string, index: number) => {
+    if (selectedOptionIndex !== null) return; // Prevent multiple selections
+
+    setSelectedOptionIndex(index);
+    setIsFlipped(true); // Automatically flip the card
+
+    if (selectedText === correctOptionText) {
+      setFeedbackColor("bg-green-100");
+    } else {
+      setFeedbackColor("bg-red-100");
+    }
+  }, [selectedOptionIndex, correctOptionText]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -51,6 +113,14 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
         case "Enter":
           onReset(); // Start new session
           break;
+        case "1":
+        case "2":
+        case "3":
+          const optionIndex = parseInt(event.key) - 1;
+          if (options[optionIndex]) {
+            handleOptionSelect(options[optionIndex], optionIndex);
+          }
+          break;
         default:
           break;
       }
@@ -60,7 +130,7 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [currentIndex, isFlipped, flashcards.length, onReset]); // Dependencies for handlePrev, handleNext, handleFlip, onReset
+  }, [handlePrev, handleNext, handleFlip, onReset, options, handleOptionSelect]);
 
   if (flashcards.length === 0) {
     return (
@@ -72,8 +142,8 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
   }
 
   return (
-    <div className="w-full max-w-2xl p-6 flex flex-col items-center">
-      <Card className="w-full h-80 flex flex-col justify-between items-center p-6 mb-6 relative perspective-1000">
+    <div className={cn("w-full max-w-2xl p-6 flex flex-col items-center rounded-lg shadow-md transition-colors duration-300", feedbackColor)}>
+      <Card className="w-full h-80 flex flex-col justify-between items-center p-6 mb-6 relative perspective-1000 bg-white">
         <div
           className={cn(
             "relative w-full h-full transition-transform duration-500 transform-style-preserve-3d",
@@ -106,6 +176,26 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
         <Button onClick={handleNext} variant="outline" size="icon">
           <ArrowRight className="h-5 w-5" />
         </Button>
+      </div>
+
+      {/* Options for quiz */}
+      <div className="grid grid-cols-1 gap-3 w-full max-w-xs mb-6">
+        {options.map((option, index) => (
+          <Button
+            key={index}
+            onClick={() => handleOptionSelect(option, index)}
+            variant={selectedOptionIndex === index ? (option === correctOptionText ? "default" : "destructive") : "outline"}
+            className={cn(
+              "w-full py-3 text-lg",
+              selectedOptionIndex !== null && option === correctOptionText && "bg-green-500 hover:bg-green-600 text-white",
+              selectedOptionIndex === index && option !== correctOptionText && "bg-red-500 hover:bg-red-600 text-white",
+              selectedOptionIndex !== null && selectedOptionIndex !== index && option !== correctOptionText && "opacity-50 cursor-not-allowed"
+            )}
+            disabled={selectedOptionIndex !== null}
+          >
+            {index + 1}. {option}
+          </Button>
+        ))}
       </div>
 
       <div className="text-lg text-gray-700 mb-6">
