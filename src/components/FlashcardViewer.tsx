@@ -20,7 +20,7 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
   const [correctOptionText, setCorrectOptionText] = useState<string>("");
   const [selectedOptionIndex, setSelectedOptionIndex] = useState<number | null>(null);
   const [feedbackColor, setFeedbackColor] = useState<string>("bg-blue-100");
-  const [autoNextEnabled, setAutoNextEnabled] = useState<boolean>(false);
+  const [autoNextEnabled, setAutoNextEnabled] = useState<boolean>(true); // Changed to true
   const autoNextTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // New state for statistics
