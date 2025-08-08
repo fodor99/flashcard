@@ -3,12 +3,14 @@ import { MadeWithDyad } from "@/components/made-with-dyad";
 import FlashcardInput from "@/components/FlashcardInput";
 import FlashcardViewer from "@/components/FlashcardViewer";
 import { Flashcard } from "@/types/flashcard";
+import { shuffleArray } from "@/lib/utils"; // Import the shuffle utility
 
 const Index = () => {
   const [flashcards, setFlashcards] = useState<Flashcard[] | null>(null);
 
   const handleCardsLoaded = (cards: Flashcard[]) => {
-    setFlashcards(cards);
+    const shuffledCards = shuffleArray(cards); // Shuffle the cards here
+    setFlashcards(shuffledCards);
   };
 
   const handleResetSession = () => {
