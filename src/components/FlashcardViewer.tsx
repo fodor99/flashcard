@@ -179,7 +179,7 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
         <Label htmlFor="auto-next-mode">Auto-Next on Correct</Label>
       </div>
 
-      <Card className="w-full h-80 flex flex-col justify-between items-center p-6 mb-6 relative perspective-1000 bg-white">
+      <Card key={currentCard.id} className="w-full h-80 flex flex-col justify-between items-center p-6 mb-6 relative perspective-1000 bg-white">
         <div
           className={cn(
             "relative w-full h-full transition-transform duration-500 transform-style-preserve-3d",
