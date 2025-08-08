@@ -57,6 +57,13 @@ const FlashcardInput: React.FC<FlashcardInputProps> = ({ onLoadCards }) => {
     }
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (event.key === 'Enter' && !event.shiftKey) { // Prevent new line on Enter, allow Shift+Enter for new line
+      event.preventDefault();
+      handleLoadCards();
+    }
+  };
+
   return (
     <div className="w-full max-w-2xl p-6 bg-white rounded-lg shadow-md">
       <h2 className="text-2xl font-semibold mb-4 text-center">Create Your Flashcards</h2>
@@ -67,6 +74,7 @@ const FlashcardInput: React.FC<FlashcardInputProps> = ({ onLoadCards }) => {
         placeholder="Example:&#10;Hello - Hola&#10;Goodbye - Adiós&#10;Cat - Gato"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
+        onKeyDown={handleKeyDown}
         rows={10}
         className="mb-4 resize-y"
       />

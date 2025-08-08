@@ -35,6 +35,33 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
     setCurrentIndex((prevIndex) => (prevIndex - 1 + flashcards.length) % flashcards.length);
   };
 
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      switch (event.key) {
+        case "ArrowLeft":
+          handlePrev();
+          break;
+        case "ArrowRight":
+          handleNext();
+          break;
+        case "ArrowUp":
+        case "ArrowDown":
+          handleFlip();
+          break;
+        case "Enter":
+          onReset(); // Start new session
+          break;
+        default:
+          break;
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [currentIndex, isFlipped, flashcards.length, onReset]); // Dependencies for handlePrev, handleNext, handleFlip, onReset
+
   if (flashcards.length === 0) {
     return (
       <div className="text-center p-6">
