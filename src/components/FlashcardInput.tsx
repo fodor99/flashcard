@@ -3,13 +3,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { Flashcard } from "@/types/flashcard";
+import defaultContent from '../../default.md?raw';
 
 interface FlashcardInputProps {
   onLoadCards: (cards: Flashcard[]) => void;
 }
 
 const FlashcardInput: React.FC<FlashcardInputProps> = ({ onLoadCards }) => {
-  const [inputValue, setInputValue] = useState<string>("");
+  const [inputValue, setInputValue] = useState<string>(defaultContent);
   const { toast } = useToast();
 
   const handleLoadCards = () => {
