@@ -6,6 +6,7 @@ import { Flashcard } from "@/types/flashcard";
 import { shuffleArray } from "@/lib/utils"; // Import the shuffle utility
 import { Link } from "react-router-dom"; // Import Link for navigation
 import { Button } from "@/components/ui/button"; // Import Button for styling
+import backgroundImage from '../../public/background.jpeg';
 
 const Index = () => {
   const [flashcards, setFlashcards] = useState<Flashcard[] | null>(null);
@@ -20,7 +21,8 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4 bg-no-repeat bg-cover"
+    style={{backgroundImage: `url(${backgroundImage})`}}>
       <h1 className="text-4xl font-bold mb-8 text-center">Flashcard Learner</h1>
       {flashcards === null ? (
         <FlashcardInput onLoadCards={handleCardsLoaded} />
