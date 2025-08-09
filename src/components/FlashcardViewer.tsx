@@ -7,6 +7,7 @@ import { cn, shuffleArray } from "@/lib/utils";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { motion } from "framer-motion"; // Import motion from framer-motion
+import { useSound } from "@/hooks/use-sounds";
 
 interface FlashcardViewerProps {
   flashcards: Flashcard[];
@@ -22,6 +23,7 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
   const [feedbackColor, setFeedbackColor] = useState<string>("bg-blue-100");
   const [autoNextEnabled, setAutoNextEnabled] = useState<boolean>(true);
   const autoNextTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const playSound = useSound();
 
   // New state for statistics
   const [cardsPresentedCount, setCardsPresentedCount] = useState(1); // Starts at 1 for the first card
@@ -106,6 +108,7 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
     setIsFlipped(true);
 
     if (selectedText === correctOptionText) {
+      playSound("success");
       setFeedbackColor("bg-green-100");
       setCorrectAnswersCount(prevCount => prevCount + 1); // Increment correct answers
       if (autoNextEnabled) {
@@ -114,6 +117,7 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
         }, 1000);
       }
     } else {
+      playSound("error");
       setFeedbackColor("bg-red-100");
     }
   }, [selectedOptionIndex, correctOptionText, autoNextEnabled, handleNext]);
