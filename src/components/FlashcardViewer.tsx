@@ -130,6 +130,11 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
         playSound("error");
       }
       setFeedbackColor("bg-red-100");
+      if (autoNextEnabled) {
+        autoNextTimeoutRef.current = setTimeout(() => {
+          handleNext();
+        }, 2000);
+      }
     }
   }, [selectedOptionIndex, correctOptionText, autoNextEnabled, handleNext]);
 
