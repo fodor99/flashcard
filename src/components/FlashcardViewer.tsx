@@ -23,6 +23,8 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
   const [selectedOptionIndex, setSelectedOptionIndex] = useState<number | null>(null);
   const [feedbackColor, setFeedbackColor] = useState<string>("bg-blue-100");
   const [autoNextEnabled, setAutoNextEnabled] = useState<boolean>(true);
+  const [soundEnabled, setSoundEnabled] = useState<boolean>(false);
+  const [speechEnabled, setSpeechEnabled] = useState<boolean>(false);
   const autoNextTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const playSound = useSound();
 
@@ -33,7 +35,9 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
   // Function to generate quiz options
   const generateOptions = useCallback(() => {
     const currentCardForOptions = flashcards[currentIndex];
-    speakWord(currentCardForOptions.front);
+    if(speechEnabled){
+      speakWord(currentCardForOptions.front);
+    }
     if (!currentCardForOptions) return;
 
     const correctAns = currentCardForOptions.back;
@@ -111,7 +115,9 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
     setIsFlipped(true);
 
     if (selectedText === correctOptionText) {
-      playSound("success");
+      if(soundEnabled){
+        playSound("success");
+      }
       setFeedbackColor("bg-green-100");
       setCorrectAnswersCount(prevCount => prevCount + 1); // Increment correct answers
       if (autoNextEnabled) {
@@ -120,7 +126,9 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
         }, 1000);
       }
     } else {
-      playSound("error");
+      if(soundEnabled){
+        playSound("error");
+      }
       setFeedbackColor("bg-red-100");
     }
   }, [selectedOptionIndex, correctOptionText, autoNextEnabled, handleNext]);
@@ -205,12 +213,26 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
   return (
     <div className={cn("w-full max-w-2xl p-6 flex flex-col items-center rounded-lg shadow-md transition-colors duration-300", feedbackColor)}>
       <div className="flex items-center space-x-2 mb-4 self-end">
+        
+        <Switch
+          id="sound-mode"
+          checked={soundEnabled}
+          onCheckedChange={setSoundEnabled}
+        />
+        <Label htmlFor="sound-mode">Sound</Label>
+        <Switch
+          id="speech-mode"
+          checked={speechEnabled}
+          onCheckedChange={setSpeechEnabled}
+        />
+        <Label htmlFor="speech-mode">Speech</Label>
+
         <Switch
           id="auto-next-mode"
           checked={autoNextEnabled}
           onCheckedChange={setAutoNextEnabled}
         />
-        <Label htmlFor="auto-next-mode">Auto-Next on Correct</Label>
+        <Label htmlFor="auto-next-mode">Auto-Next</Label>
       </div>
 
       <Card key={currentCard.id} className="w-full h-80 flex flex-col justify-between items-center p-6 mb-6 relative perspective-1000 bg-white">
