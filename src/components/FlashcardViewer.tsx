@@ -8,6 +8,7 @@ import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { motion } from "framer-motion"; // Import motion from framer-motion
 import { useSound } from "@/hooks/use-sounds";
+import { speakWord } from "@/utils/speak";
 
 interface FlashcardViewerProps {
   flashcards: Flashcard[];
@@ -32,6 +33,7 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
   // Function to generate quiz options
   const generateOptions = useCallback(() => {
     const currentCardForOptions = flashcards[currentIndex];
+    speakWord(currentCardForOptions.front);
     if (!currentCardForOptions) return;
 
     const correctAns = currentCardForOptions.back;
@@ -84,7 +86,8 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
       setCardsPresentedCount(prevCount => prevCount + 1); // Increment cards presented
       return newIndex;
     });
-  }, [flashcards.length]);
+  
+  }, [flashcards, flashcards.length]);
 
   const handlePrev = useCallback(() => {
     if (autoNextTimeoutRef.current) {
