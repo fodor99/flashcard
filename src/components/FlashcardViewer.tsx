@@ -111,7 +111,7 @@ const FlashcardViewer: React.FC<FlashcardViewerProps> = ({ flashcards, onReset }
       if (autoNextEnabled) {
         autoNextTimeoutRef.current = setTimeout(() => {
           handleNext();
-        }, 2000);
+        }, 1000);
       }
     } else {
       setFeedbackColor("bg-red-100");
