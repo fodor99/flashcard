@@ -117,3 +117,10 @@
 .rotate-y-180 {
   transform: rotateY(180deg);
 }
+
+
+@layer utilities {
+  .dbg {
+    @apply outline outline-2 outline-yellow-300;
+  }
+}

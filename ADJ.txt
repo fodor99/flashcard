@@ -1,0 +1,542 @@
+such as - mint például
+charming - elbűvölő
+dishonest - tisztességtelen
+windy - szeles
+good - jó, jók, jót
+a few - néhány
+comfortable - kényelmes
+unexpected - váratlan
+lovely - imádnivaló
+willing - hajlandó
+steep - meredek
+genuine - eredeti
+foggy - ködös
+fashionable - divatos
+rich - gazdag
+obvious - nyilvánvaló
+small - kicsi
+much - sok, sokat, sokkal
+French - francia
+sad - szomorú
+violent - erőszakos
+mad - mérges
+minimum - minimum, legkisebb, legalacsonyabb
+how much - mennyi
+unpopular - népszerűtlen
+black - fekete
+old - régi
+deep - mély
+amazed - elképedt, lenyűgözve
+ant - hangya
+unusual - szokatlan
+happy - boldog
+funny - vicces
+illegal - törvénytelen, illegális
+Chinese - kínai
+high - magas
+empty - üres
+shocking - megdöbbentő
+double - kettős, dupla, kétszeres
+unnecessary - szükségtelen
+picky - válogatós
+few - kevés, keveset
+select - választani
+gentle - gyengéd, szelíd
+sensitive - érzékeny
+rare - ritka
+organic - organikus, biológiai
+unconscious - tudattalan
+crucial - létfontosságú
+seasonal - szezonális
+adorable - aranyos
+irritated - irritált
+secret - titkot, titok, titkom
+sophisticated - kifinomult
+fluffy - bolyhos
+unavailable - elérhetetlen
+as usual - mint mindig
+difficult - nehéz
+guilty - bűnös
+academic - akadémiai
+scary - ijesztő
+silent - csendes
+i'm sorry - sajnálom
+incorrect - helytelen
+tiny - apró
+young - fiatal
+cheerful - vidám
+considerable - jelentős
+good at - jó az írásban
+American - amerikai
+australian - ausztrál
+upcoming - következő
+raw - nyers
+friendly - barátságos
+least - legkevésbé
+top - teteje
+internal - belső
+important - fontos
+incredible - hihetetlen
+Italian - olasz
+sweet - édes
+free - díjmentes, ingyenes, ingyen
+how many - hány
+greedy - kapzsi
+adventurous - kalandvágyó
+convenient - megfelelő
+ultimate - végső
+beautiful - gyönyörű
+regular - átlagos
+risky - kockázatos
+lonely - magányos
+underestimate - alábecsül
+reasonable - észszerű
+modern - modern
+personal - személyes, személyi
+whole - egész
+bright - fényes
+gray - szürke
+gorgeous - gyönyörű, gyönyörűek
+final - utolsó
+foreign - idegen
+lifelong - élethosszig tartó
+twin - ikertestvér
+various - különböző
+worth - ér (vmennyit)
+efficient - hatékony
+responsible - felelős, megbízható, felelősségteljes
+unhappy - boldogtalan
+heavy - nehéz
+grossest - legundorítóbb
+annoying - idegesítő
+immediate - azonnali
+noteworthy - figyelemre méltó
+hard - nehéz
+central - központi
+each other - egymást, egymásnak
+unreasonable - elfogadhatatlan, túlzó
+several - számos
+outrageous - felháborító
+stunning - pompás
+sick - beteg
+excellent - kiváló
+specific - pontosabb, konkrét
+frequent - gyakori, gyakoriak
+nice - szép
+unknown - ismeretlen
+traditional - hagyományos
+sharp - éles, pontos, pontosan
+strict - szigorú
+sleepy - álmos
+same - ugyanaz
+quick - gyors
+annual - éves
+anxious - izgatott
+admirable - csodálatos
+muddy - sárosnak, sáros
+unbelievable - hihetetlen
+fabulous - mesés
+affordable - megfizethető
+flexible - rugalmas
+hot - forró
+main - legfőbb
+polite - udvarias
+temporary - ideiglenes
+allergic to - allergiás
+not bad - nem rossz, nem rosszak
+shy - félénk, szégyenlős
+hopeful - reménykedő
+i'm good - Jól vagyok
+how big - mekkora
+artistic - művészi
+gross - undorító
+big - nagy
+approximate - hozzávetőleges
+thoughtful - figyelmes
+Spanish - spanyol
+present - ajándék
+original - eredeti
+minor - apró
+medium - közepes méretű
+skeptical - szkeptikus, szkeptikusan, Szkeptikus
+Canadian - kanadai
+slow - lassú
+bad at - rossz vmiből, rossz
+cooler - hűvösebb, menőbb, menőbbek
+false - hamis
+lunchtime - ebédidő
+suspenseful - Izgalmas, izgalmas, izgalmasabb
+loud - hangos
+disappointing - csalódást keltő, kiábrándító
+cheap - olcsó
+ideal - ideális
+it's sunny - napos idő van, napos
+ugly - csúnya
+influential - befolyásos
+farthest - legmesszebb, legtávolabb
+gay - meleg
+German - német
+fewer - kevesebb
+expensive - drága
+wonderful - csodálatos
+weak - gyenge
+private - privát, zártkörű, magánkézben lévő
+favorite - kedvenc
+poisonous - mérgező
+pathetic - szánalmas
+thick - sűrű
+that's fine - az rendben van
+sorry - bocsánat
+careless - figyelmetlen, gondatlan
+stranger - idegen
+understandable - érthető
+ridiculous - nevetséges
+defective - rossz
+cloudy - felhős
+frightening - ijesztő, rémisztő
+English - angol
+improbable - valószínűtlen
+grateful - hálás
+negative - nemleges, negatív, elutasító
+professional - szakmai
+previous - korábbi
+strong - erős
+typical - jellemző, tipikus
+cautious - óvatos
+fair - tisztességes, méltányos, korrekt
+unfair - igazságtalan
+accessible - elérhető
+as many - annyi, amennyi
+poor - szegény
+recent - közelmúltbeli, legutóbbi, friss
+practical - gyakorlati, praktikus, Gyakorlati
+rural - vidéki
+formal - hivatalos, formális
+past - mellett, múlt, múltban
+wooden - fából készült, fa-, fa
+awake - ébren
+dizzy - szédül
+enormous - hatalmas, hatalmasnak
+famous - híres
+overall - összességében
+social - társadalmi, társasági, társas
+olympic - olimpiai
+unlikely - valószínűtlen
+last - legutóbbi
+so many - olyan sok
+correct - helyes
+impressive - leglenyűgözőbbek, lenyűgözőek, lenyűgöző
+intelligent - intelligens
+loyal - hűséges
+perfect - tökéletes
+nervous - ideges
+next - következő
+productive - termelékeny
+red - piros
+nearest - legközelebbi
+British - brit
+strange - furcsa
+thirty-first - harmincegyedik
+successful - sikeres
+tall - magas
+sudden - hirtelen
+fake - hamis
+awesome - remek
+jealous - féltékeny
+direct - rendezi, rendezem
+too much - túl sok
+accent - akcentus
+creative - kreatív
+afraid of - fél, Félek
+environmental - környezetvédelmi, környezeti
+likely - valószínűleg
+steady - állandó
+entire - egész
+intermediate - középszintű, középfokú, középhaladó
+innocent - ártatlan
+new - új
+seventh - hetedik
+reliable - megbízható
+Japanese - japán
+bizarre - bizarr
+twenty-first - huszonegyedik
+greatest - legnagyobb, legnagyszerűbb, legnagyszerűbbek
+square - tér
+amazing - lenyűgöző
+unemployed - munkanélküli
+weird - furcsa
+bad - rossz
+bitter - keserű
+british - angolok, brit
+available - szabad
+aware - tisztában
+confident - magabiztos
+mild - enyhe
+biggest - legnagyobb
+helpful - segítőkész
+responsible for - felelős
+peaceful - békés
+common - gyakori
+relative - rokon
+commercial - reklám
+married to - házas, házasok
+deadly - halálos
+urgent - sürgős
+surprising - meglepő
+unhealthy - egészségtelen
+delete - törlöm
+stubborn - makacs
+opposite - szemben
+live - lakik
+realistic - valósághű
+popular - népszerű
+second - második
+asleep - alszik, elaludt
+sociable - társaságkedvelő
+possible - lehetséges
+average - átlagos
+former - egykori, korábbi
+marvelous - csodálatos
+ready - kész
+painful - fájdalmas
+diverse - sokszínű
+sure - biztos, biztosra, biztosak
+functional - funkcionális
+outdoor - szabadtéri, kültéri
+electronic - elektronikus
+own - van
+unwanted - nem kívánt
+cold - hideg
+short - alacsony
+special - különleges
+narrow - keskeny, keskenyek
+little - kis
+awful - szörnyű
+a little - egy kicsit
+unpredictable - kiszámíthatatlan
+gullible - hiszékeny
+interrupt - félbeszakítani
+fresh - friss
+great - nagyszerűnek, nagyszerű, nagyszerűen
+soft - puha
+it's hot - meleg van
+clever - okos, ügyes, ügyesek
+frustrating - frusztrálónak, frusztráló
+open - nyitva
+south - dél
+busy - zsúfolt
+whistle - sípszó
+noisy - zajos
+safe - biztonságban
+sour - savanyú
+dark - sötét
+mad at - mérgesek
+medical - orvosi
+clean - tiszta
+careful - óvatos
+political - politikai
+glad - örül
+flat - lakás, lakásszerződést
+stoplight - közlekedési lámpa, jelzőlámpa
+other - más, többi, másik
+ready for - kész
+routine - rutin
+gigantic - hatalmas
+ambitious - nagyravágyó, nagyravágyóak
+it's cold - hideg van
+able to - képes
+middle - középső
+senior - végzős
+icy - jeges
+impossible - lehetetlen, lehetetlennek
+natural - természetes
+endless - végtelen
+wrong - helytelen
+eager - lelkes
+unlucky - szerencsétlen
+powerful - erőteljes, erős, erősebb
+nostalgic - nosztalgikus, nosztalgiát, nosztalgiássá
+many - sok
+frozen - fagyasztott, befagyott
+Arabic - arab
+warm - meleg
+classical - klasszikus
+serious - komoly
+annoyed - bosszús
+native - őshonos
+embarrassed - zavarban
+ancient - ősi, ókori
+allergic - allergiás
+athletic - atletikus
+alcoholic - alkoholista, alkoholos
+real - valódi
+easygoing - laza
+wild - vad
+forgetful - feledékeny
+smart - okos
+swum - úszott
+cute - aranyos
+thin - vékony
+faulty - rossz, rosszak
+tight - szűk
+elderly - idős
+magical - varázslatos
+spontaneous - spontán, spontaneitás
+round - kerek
+stupid - hülye
+possible to - lehetséges
+valuable - értékes
+dead - halott
+interested in - érdekel
+how old - hány éves, mennyi idős
+brand new - vadonatúj
+suspicious - gyanús
+you're welcome - szívesen
+tenth - tizedik
+sixth - hatodik
+fit - fitt
+dirty - piszkos
+northern - észak
+alive - élve, életben (van)
+picturesque - festői
+extraordinary - rendkívüli, legkülönlegesebb
+tasty - finom
+historic - történelmi
+useless - haszontalan
+too many - túl sok
+complete - teljes, elvégezhetem, elvégeznünk
+horrible - szörnyű
+dangerous - veszélyes
+fast - gyors
+awkward - furcsa
+lazy - lusta
+inexpensive - olcsók
+white - fehér
+due - esedékes
+western - nyugati
+effective - hatékony
+complicated - bonyolult
+bald - kopasz
+surprised - meglepett
+similar - hasonló
+worse - rosszabb
+ordinary - átlagos, hétköznapi
+furious - dühös
+unforgettable - felejthetetlen
+blank - üres
+miserable - nyomorult, nyomorúságos
+comic - vicces, képregény, képregényhez
+what's wrong - mi a baj
+positive - pozitív
+afraid - fél
+lucky - szerencsés
+single - egyedülálló
+in general - általában
+healthy - egészséges
+cool - menő
+brave - bátor
+slight - kis, enyhe
+urban - városi
+quiet - csendes
+hungry - éhes
+doubtful - kétséges
+easy - könnyű
+spare - tartalék, pót
+half - fél
+interesting - érdekes
+it's rainy - Esős az idő
+irresponsible - felelőtlen
+current - jelenlegi
+third - harmadik
+romantic - romantikus
+colorful - színes
+selfish - önző
+normal - normális
+offensive - sértő, sértővé
+ours - a miénk, a mieink, irodánk
+significant - jelentős
+good for - jók, jó
+financial - pénzügyi
+extra - még
+dramatic - drámai
+attic - padlás
+valid - érvényes
+proud - büszke
+residential - lakóterület, lakó
+key - kulcs
+shiny - fényes
+unacceptable - elfogadhatatlan
+unrealistic - irreális
+electrical - elektromos
+unique - egyedi
+fascinating - lenyűgöző, lenyűgözőek
+at least - legalább
+true - igaz
+separate - különálló
+loose - laza
+simple - egyszerű
+full of - vmivel tele
+neat - rendezett
+desperate - kétségbeesett
+religious - vallásos, vallási
+the same - ugyanaz, egyformák, ugyanazok
+yellow - sárga
+independent - független, önálló
+famous for - híres/nevezetes valamiről
+honest - őszinte
+emotional - érzelmes
+fine - jó, finom, jól
+lid - WC-tetőt, fedél
+useful - hasznos
+terrible - szörnyű
+latest - legújabb
+different - más
+conventional - hagyományos
+stressful - stresszes
+that's too bad - ez igazán kár
+bad for you - rossz neked
+generous - nagylelkű
+how much is - mennyibe kerül
+blue - kék
+untie - kibogozza, bogozni, kibogozni
+angry - mérges
+full - teljes, tele, teli
+necessary - szükséges, nélkülözhetetlen
+tough - kemények, kemény
+local - helyi
+pregnant - állapotos
+drunk - ivott
+familiar - ismerős
+huge - hatalmas
+unpleasant - kellemetlen
+pink - rózsaszín
+mysterious - rejtélyes
+subject - tantárgy
+severe - súlyos
+shady - árnyékos
+swollen - duzzadt
+happy to - szívesen
+tired - fáradt
+fourth - negyedik
+fancy - elegáns
+odd - furcsa
+low - alacsony
+uncertain - bizonytalan
+fluent - folyékony
+certain - bizonyos
+yummy - finom
+dry - szárít, száraz, megszárít
+tropical - trópusi
+large - nagy
+silly - bolondos, buta
+blind - vak
+brief - rövid
+at last - végre
+wealthy - gazdag
+major - szak
+competitive - versengő
+exciting - izgalmas
+memorable - emlékezetes
+unreliable - megbízhatatlan
+salty - sós
+uncomfortable - kényelmetlen

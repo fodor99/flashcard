@@ -1,0 +1,377 @@
+bee - méh
+cliché - klisé
+browser - böngésző
+virus - vírus
+haircut - hajvágás
+jam - lekvár
+rec center - szabadidőközpont
+July - július
+parrot - papagáj, papagájt, papagájok
+leg - láb
+champagne - pezsgő
+headache - fejfájás
+January - január
+feather - tolla, toll
+rsvp - kérjük, jelezzen vissza
+circle - kör, körforgás
+creepy - ijesztő, hátborzongató
+cardio - kardió
+hockey - jégkorong
+peak - csúcs
+gym - edzőterem
+mattress - matrac
+dip - mártás, mártogatóst
+oven - sütő
+pickle - savanyúság
+lady - hölgy
+essential - elengedhetetlen
+brown - barna
+tuna - tonhal
+performer - előadóművész
+peculiar - furcsa
+spinach - spenót
+habitat - élőhely
+ham - sonka
+juice - gyümölcslé
+puppy - kiskutyát, kiskutya
+waterproof - vízálló
+gun - fegyver, pisztoly
+maximum - maximum
+saturday - szombat
+marathon - maraton
+visitor - látogató
+shark - cápa, cápát (acc)
+restart - újraindít
+atm - bankautomata
+February - február
+freezer - fagyasztó
+hill - domb
+tuesday - kedd
+groom - vőlegény
+board - tábla
+balcony - erkély, erkélyem
+witch - boszorkány
+cough - köhögés
+squirrel - mókus
+webcam - webkamera
+kangaroo - kenguru
+diet - étrend
+sushi - szusi
+snowboard - snowboardozik
+disguise - jelmeze, jelmezben, jelmez
+traveler - utazó
+magician - bűvész
+east - kelet
+father - apa
+ufo - UFO-tól, UFO-t, UFO
+stepmother - mostohaanyád
+entrepreneur - vállalkozó
+mobile - mobil
+March - március
+cowboy - cowboy
+goat - kecske
+sneaker - sportcipő
+mustache - bajusz, bajusza
+playoff - rájátszás
+professor - professzor
+green - zöld
+cucumber - uborka, uborkát
+cookie - keksz
+photo - fénykép
+dictionary - szótár
+pencil - ceruza
+comedian - humorista
+record - felvesz
+crown - korona
+journal - napló
+scam - csalás
+forecast - előrejelzés
+fry - sütni, megsütöm
+international - nemzetközi
+bowl - tál
+van - van
+café - kávézó
+mango - mangó
+bagel - bagel
+hassle - macera
+mouse - egér
+soup - leves
+turtle - teknős, teknősbéka
+bible - Biblia
+tech - technológia, tech
+dj - DJ
+st - 1.
+umbrella - esernyő
+gate - kapu
+banana - banán
+garlic - fokhagyma
+wet - nedves
+liquid - folyékony, folyadék
+sung - énekelt
+series - sorozat
+cardboard - kartondobozokba, kartondoboz, kartondobozokat
+skeleton - csontváz, csontvázat
+businesswoman - üzletasszony
+atheist - ateista
+bridge - híd
+curry - curry
+bingo - bingó
+button - gomb
+beach - tengerpart
+lemonade - limonádé
+casual - laza, hétköznapi
+theme park - vidámpark
+lamb - bárány
+brilliant - zseniális, ragyogó
+barbershop - borbély, fodrászat
+spot - hely
+sunday - vasárnap
+classmate - csoporttárs
+lawn - fű, gyep
+cabinet - szekrény
+mask - maszk, maszkra, maszkot
+tabloid - bulvárlap, bulvárcikk
+thirsty - szomjas
+healthcare - egészségügyi
+pillow - párna
+monkey - majom
+gown - ruhádban, estélyi ruha
+app - alkalmazás
+password - jelszó
+pedestrian - gyalogost
+backpack - hátizsák
+screen - vászna, képernyőt, képernyő
+grammar - nyelvtan
+prisoner - fogoly
+lover - szerető
+volcano - vulkán, tűzhányó, tűzhányót
+temple - templom
+tuxedo - szmoking
+kilometer - kilométer
+username - felhasználónév
+faucet - csapot, csap
+spray - spray-t
+valley - völgy
+mingle - keveredjek, keveredjünk, keveredj
+damp - nyirkos
+brazilian - brazil
+scientist - tudós, tudósnak
+gallery - galéria
+robber - rabló
+shampoo - sampon
+kid - gyerek
+hid - bebújt
+complaint - panasz
+light bulb - villanykörtét
+world cup - világbajnokság
+catholic - katolikus
+thermometer - hőmérő
+jog - kocog
+jungle - dzsungel
+sensible - érzékeny
+southeast - délkelet
+hairstylist - fodrász
+cabbage - káposzta, káposztás
+house - ház
+runner - futó
+December - december
+prom - végzős bál
+giraffe - zsiráf
+dusty - poros
+lollipop - nyalókámat, nyalóka, nyalókát
+menu - étlap
+grandpa - nagypapa
+masterpiece - Mesterműnek, mesterművének, mestermű
+lake - tó
+lobster - homár
+bush - Bush
+museum - múzeum
+bathtub - kád
+comb - fésű
+eastern - keleti
+napkin - szalvéta
+park - park
+turkey - pulykahús
+book - könyv
+medal - érem
+tower - torony
+vegetarian - vegetáriánus
+technical - műszaki
+yogurt - joghurt
+noise - zaj
+mug - bögre
+admire - csodálsz
+abandon - hagyták el, elhagyták
+prince - herceg
+bilingual - kétnyelvű
+Christmas - karácsony
+June - június
+fantastic - fantasztikus
+smooth - sima
+errand - ügyet
+owner - tulajdonos
+South america - Dél-Amerika
+curly - göndör
+tricky - trükkös
+bouquet - rózsacsokrot, csokrát
+cousin - unokatestvér
+homework - házi feladat
+solo - szóló, egyedül
+scooter - robogó
+ache - fájdalom
+joke - vicc, viccet (acc.)
+wolf - farkas, farkasnak
+lifeguard - úszómester
+weekly - heti
+Australia - Ausztrália
+temper - türelem
+toxic - mérgező
+elementary school - általános iskola
+daughter - lánya
+skirt - szoknya
+penguin - pingvin
+kettle - vízforraló, teáskannát
+Hindi - hindi
+homesick - honvágyat
+lesbian - leszbikus
+criminal - bűnöző, bűnözőt
+jersey - mez
+toothache - fogfájás
+hug - ölelés
+baker - pék
+chaperone - kísérő
+autograph - autogram
+blueberry - áfonya
+beg - könyörögtünk
+fond - Szeretett
+beard - szakáll
+microphone - mikrofon
+artificial - mesterséges
+prom queen - bálkirálynő
+spectacular - lenyűgöző, látványos
+flu - influenzás, influenza, influenzád
+bank - bank
+soda - üdítő
+spirit - szellemiségét
+skateboard - gördeszkázni, gördeszka, gördeszkám
+national - nemzeti
+confess - bevallom
+discovery - felfedezés
+karaoke - karaoke
+April - április
+thursday - csütörtök
+bacon - szalonna
+airport - repülőtér
+orchestra - zenekar
+nineteenth - tizenkilencedik
+shipwreck - hajótörést
+envelope - boríték
+southern - déli
+mailbox - postaládát, postaládám, mail
+american - amerikai, amerikaiak, az amerikai
+landlord - háziúr
+affair - viszonyt
+poem - vers
+pothole - kátyú
+mistaken - tévedtem
+lent - kölcsönadta, kölcsönzött, kölcsönadott
+Egypt - Egyiptom
+theirs - övék, az övék, az övéket
+motor - motor, motorja, motorod
+basil - bazsalikom
+sticky - ragadós
+brownie - brownie
+aisle - sor
+delicious - finom
+department - részleg
+Canada - Kanada
+rang - csöngött, csörgött
+funeral - temetés
+hall - folyosó
+belt - öv
+mascot - kabala
+August - augusztus
+nephew - unokaöcs, unokaöcsémet
+sweater - pulóver
+stylish - stílusos
+melon - dinnye, dinnyét
+monday - hétfő
+peach - őszibarack
+November - november
+priest - pap
+highlight - kiemel
+cup - csésze, kupa, csészét
+friday - péntek
+layover - átszállás
+zoo - állatkert
+west - nyugat
+star - csillag
+barber - borbély, fodrász
+orange - narancssárga
+coast - part, tengerpart, partvidék
+nickname - beceneve
+web - web, háló
+crab - rák
+violin - hegedű
+species - faj
+cozy - otthonos
+itinerary - program, programot
+desert - sivatag
+safari - szafari
+embarrass - megszégyeníteni, szégyenkezni
+cinema - mozi, mozihoz, mozit
+electric - elektromos
+ping pong - pingpong
+blond - szőke
+sun - nap, napon, napot
+wheelchair - kerekesszék
+North america - Észak-Amerika
+deli - delikát bolt, delikát boltot, delikát boltban
+forehead - homlok
+diner - étkezde
+coconut - kókusz
+October - október
+salesperson - eladó
+castle - kastély
+rub - dörzsölöd, dörzsölöm
+counter - pult
+humid - párás
+twentieth - huszadik
+box - dobozt, doboz, dobozra
+cigarette - cigaretta
+Asia - Ázsia
+rainy - esős, esősek
+queen - királynő
+alien - idegen, idegennek, idegennel
+stream - patak
+supervisor - felügyelőm, felügyelő
+god - Isten
+rewatch - újranéz, újra megnéz
+workbook - munkafüzet
+heater - fűtőtest
+rob - kirabolni
+wednesday - szerda
+eighteenth - tizennyolcadik
+neighbor - szomszéd
+cheese - sajt
+sock - zokni
+rhythm - ritmusra, ritmusérzékem
+tooth - fog
+chin - álla
+jack-o'-lantern - töklámpa
+stormy - viharos
+plumber - vízvezetékszerelő
+ocean - óceán
+keyboard - billentyűzet
+tablet - tablet
+alarm clock - ébresztőóra
+werewolf - vérfarkas, vérfarkasról
+September - szeptember
+stick - bot
+breakup - szakítást
+pizza - pizza
+foul - szabálytalanság, szabálytalanságot
+cliff - szikla
+Africa - Afrika
+stomachache - gyomorfájás
+sixty - hatvan

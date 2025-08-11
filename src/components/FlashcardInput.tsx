@@ -6,6 +6,20 @@ import { Flashcard } from "@/types/flashcard";
 import defaultContent from '../../default.md?raw';
 import dlContent from '../../dl.md?raw';
 
+import adjContent from '../../ADJ.txt?raw';
+import adpContent from '../../ADP.txt?raw';
+import advContent from '../../ADV.txt?raw';
+import auxContent from '../../AUX.txt?raw';
+import cconjContent from '../../CCONJ.txt?raw';
+import detContent from '../../DET.txt?raw';
+import nounContent from '../../NOUN.txt?raw';
+import numContent from '../../NUM.txt?raw';
+import pronContent from '../../PRON.txt?raw';
+import propnContent from '../../PROPN.txt?raw';
+import sconjContent from '../../SCONJ.txt?raw';
+import verbContent from '../../VERB.txt?raw';
+
+
 interface FlashcardInputProps {
   onLoadCards: (cards: Flashcard[]) => void;
 }
@@ -15,13 +29,7 @@ const FlashcardInput: React.FC<FlashcardInputProps> = ({ onLoadCards }) => {
   const { toast } = useToast();
 
 
-  const handleDefaultCards = () => {
-    setInputValue(defaultContent);
-  };
-
-  const handleDlCards = () => {
-    setInputValue(dlContent);
-  };
+ 
 
   const handleLoadCards = () => {
     const lines = inputValue.split("\n").filter(line => line.trim() !== "");
@@ -89,15 +97,55 @@ const FlashcardInput: React.FC<FlashcardInputProps> = ({ onLoadCards }) => {
         rows={10}
         className="mb-4 resize-y"
       />
-      <Button onClick={handleDefaultCards} className="mr-2">
+      <div className="flex flex-row gap-2 flex-wrap w-full">
+      <Button onClick={() => setInputValue(defaultContent)} >
         Default Flashcards
       </Button>
-      <Button onClick={handleDlCards} className="mr-2">
+      <Button onClick={() => setInputValue(dlContent)}>
         DL Flashcards
       </Button>
-      <Button onClick={handleLoadCards} className="">
+
+      <Button onClick={() => setInputValue(adjContent)}>
+        ADJ
+      </Button>
+      <Button onClick={() => setInputValue(adpContent)}>
+        ADP
+      </Button>
+      <Button onClick={() => setInputValue(advContent)}>
+        ADV
+      </Button>
+      <Button onClick={() => setInputValue(auxContent)}>
+        AUX
+      </Button>
+      <Button onClick={() => setInputValue(cconjContent)}>
+        CCONJ
+      </Button>
+      <Button onClick={() => setInputValue(detContent)}>
+        DET
+      </Button>
+      <Button onClick={() => setInputValue(nounContent)}>
+        NOUN        
+      </Button>
+      <Button onClick={() => setInputValue(numContent)}>
+        NUM
+      </Button>
+      <Button onClick={() => setInputValue(pronContent)}>
+        PRON
+      </Button>
+      <Button onClick={() => setInputValue(propnContent)}>
+        PREP
+      </Button>
+      <Button onClick={() => setInputValue(sconjContent)}>
+        SCONJ
+      </Button>
+      <Button onClick={() => setInputValue(verbContent)}>
+        VERB
+      </Button>
+
+      <Button onClick={handleLoadCards} className="bg-green-500">
         START
       </Button>
+      </div>
     </div>
   );
 };
