@@ -1,4 +1,3 @@
-
 be - legyen
 I - én
 you - te

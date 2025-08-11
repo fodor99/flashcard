@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { Flashcard } from "@/types/flashcard";
 import defaultContent from '../../default.md?raw';
+import dlContent from '../../dl.md?raw';
 
 interface FlashcardInputProps {
   onLoadCards: (cards: Flashcard[]) => void;
@@ -12,6 +13,15 @@ interface FlashcardInputProps {
 const FlashcardInput: React.FC<FlashcardInputProps> = ({ onLoadCards }) => {
   const [inputValue, setInputValue] = useState<string>(defaultContent);
   const { toast } = useToast();
+
+
+  const handleDefaultCards = () => {
+    setInputValue(defaultContent);
+  };
+
+  const handleDlCards = () => {
+    setInputValue(dlContent);
+  };
 
   const handleLoadCards = () => {
     const lines = inputValue.split("\n").filter(line => line.trim() !== "");
@@ -79,8 +89,14 @@ const FlashcardInput: React.FC<FlashcardInputProps> = ({ onLoadCards }) => {
         rows={10}
         className="mb-4 resize-y"
       />
-      <Button onClick={handleLoadCards} className="w-full">
-        Load Flashcards
+      <Button onClick={handleDefaultCards} className="mr-2">
+        Default Flashcards
+      </Button>
+      <Button onClick={handleDlCards} className="mr-2">
+        DL Flashcards
+      </Button>
+      <Button onClick={handleLoadCards} className="">
+        START
       </Button>
     </div>
   );
